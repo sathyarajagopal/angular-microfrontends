@@ -8,26 +8,26 @@ import { createCustomElement } from '@angular/elements';
 import { BookingComponent } from './booking/booking.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    BookingComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [],
-  entryComponents: [
-    BookingComponent
-  ]
+    declarations: [
+        AppComponent,
+        BookingComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule
+    ],
+    providers: [],
+    bootstrap: [],
+    entryComponents: [
+        BookingComponent
+    ]
 })
 export class AppModule {
-  constructor(private injector: Injector) {
-  }
+    constructor(private injector: Injector) {
+    }
 
-  ngDoBootstrap() {
-    const myCustomElement = createCustomElement(BookingComponent, { injector: this.injector });
-    customElements.define('app-flight-booking', myCustomElement);
-  }
+    ngDoBootstrap() {
+        const myCustomElement = createCustomElement(BookingComponent, { injector: this.injector });
+        customElements.get('app-flight-booking') || customElements.define('app-flight-booking', myCustomElement);
+    }
 }
